@@ -26,7 +26,7 @@ export class AddEntryComponent implements OnInit {
     console.log(this.entryForm.value);
     this.entryForm.reset();
   }
-  
+
   isInvalidControl(control: string): boolean {
     return !this.entryForm.get(control).valid;
   }

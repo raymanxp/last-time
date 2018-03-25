@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { AppAlertComponent } from './app-alert/app-alert.component';
 import { AddEntryComponent } from './feature/add-entry/add-entry.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,11 +14,12 @@ import { AddEntryComponent } from './feature/add-entry/add-entry.component';
     AppComponent,
     HeaderComponent,
     AppAlertComponent,
-    AddEntryComponent
+    AddEntryComponent,
   ],
   imports: [
     BrowserModule,
-    ClarityModule
+    ClarityModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

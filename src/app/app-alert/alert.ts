@@ -14,6 +14,7 @@ export interface Alert {
 }
 
 export class AppAlert implements Alert {
+    static readonly alertTimeOut = 5000;
     closable: boolean;
     closed: boolean;
     message: string;
@@ -27,5 +28,9 @@ export class AppAlert implements Alert {
         this.message = message;
         this.type = type;
         this.sizeSmall = sizeSmall;
+    }
+
+    startTimeout(): void {
+        setTimeout(() => this.closed = true, AppAlert.alertTimeOut);
     }
 }

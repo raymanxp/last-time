@@ -1,5 +1,5 @@
 import { AlertService } from './alert.service';
-import { Alert } from './alert';
+import { Alert, AppAlert } from './alert';
 import { Component, OnInit, HostBinding, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
@@ -18,8 +18,9 @@ export class AppAlertComponent implements OnInit, OnDestroy {
   constructor(private alertService: AlertService) { }
 
   ngOnInit() {
-    this.alertSubscription = this.alerts$.subscribe(alert => {
+    this.alertSubscription = this.alerts$.subscribe((alert: AppAlert) => {
       this.alerts = [...this.alerts, alert];
+      alert.startTimeout();
     });
   }
 

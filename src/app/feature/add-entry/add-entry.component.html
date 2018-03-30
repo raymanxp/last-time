@@ -1,25 +1,55 @@
-<h1>{{title | titlecase}}</h1>
-<div class="row">
-  <div class="col-md-12">
-    <form>
-      <section class="form-block">
-        <div class="app-form-group">
-          <label for="action">Action</label>
-          <input id='action' type="text" placeholder="changed">
-        </div>
-        <div class="app-form-group">
-          <label for="pronoun">Pronoun</label>
-          <input id='pronoun' type="text" placeholder="my">
-        </div>
-        <div class="app-form-group">
-          <label for="noun">Noun</label>
-          <input id='noun' type="text" placeholder="tires">
-        </div>
-      </section>
-    </form>
+<h2>{{title | titlecase}}</h2>
+<form [formGroup]="entryForm">
+  <section class="form-block">
+    <div class="app-form-group form-group">
+      <label class="required" for="action">Action</label>
+      <label for="action" aria-haspopup="true" role="tooltip" [ngClass]="{'invalid': isInvalidControl('action')}" class="tooltip tooltip-validation tooltip-sm .tooltip-bottom-left">
+        <input id="action" formControlName="action" type="text" placeholder="changed">
+        <span class="tooltip-content">
+          This field cannot be empty!
+        </span> 
+      </label>
+    </div>
+    <div class="app-form-group form-group">
+      <label class="required" for="pronoun">Pronoun</label>
+      <label for="pronoun" aria-haspopup="true" role="tooltip" [ngClass]="{'invalid': isInvalidControl('pronoun')}" class="tooltip tooltip-validation tooltip-sm .tooltip-bottom-left">
+        <input id="pronoun" formControlName="pronoun" type="text" placeholder="my">
+        <span class="tooltip-content">
+          This field cannot be empty!
+        </span>
+      </label>
+    </div>
+    <div class="app-form-group form-group">
+      <label class="required" for="noun">Noun</label>
+      <label for="noun" aria-haspopup="true" role="tooltip" [ngClass]="{'invalid': isInvalidControl('noun')}" class="tooltip tooltip-validation tooltip-sm .tooltip-bottom-left">
+        <input id="noun" formControlName="noun" type="text" placeholder="tires">
+        <span class="tooltip-content">
+          This field cannot be empty!
+        </span>
+      </label>
+    </div>
+    <div class="app-form-group form-group">
+      <label class="required" for="date">Date</label>
+      <label for="date" aria-haspopup="true" role="tooltip" [ngClass]="{'invalid': isInvalidControl('date')}" class="tooltip tooltip-validation tooltip-sm .tooltip-bottom-left">
+        <input id="date" formControlName="date" type="date">
+        <span class="tooltip-content">
+          This field cannot be empty!
+        </span>
+      </label>
+    </div>
+  </section>
+  <section class="form-block">
+    <div class="form-group ">
+      <div class="toggle-switch">
+        <input type="checkbox" formControlName="lifeMilestone" id="milestone">
+        <label for="milestone">Life milestone</label>
+      </div>
+    </div>
+  </section>
+  <div class="Row">
+    <div class="col-md-8 push-md-2">
+      <button class="btn btn-primary btn-block" (click)="onAdd()" [disabled]="!entryForm.valid">
+        <clr-icon shape="plus"></clr-icon>Add</button>
+    </div>
   </div>
-  <div class="col-md-8 push-md-2">
-    <button class="btn btn-primary btn-block">
-      <clr-icon shape="plus"></clr-icon>Add</button>
-  </div>
-</div>
+</form>

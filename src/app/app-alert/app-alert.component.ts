@@ -1,6 +1,6 @@
 import { AlertService } from './alert.service';
 import { Alert, AppAlert } from './alert';
-import { Component, OnInit, HostBinding, OnDestroy } from '@angular/core';
+import { Component, OnInit, HostBinding, OnDestroy, ViewChild, ElementRef, AfterViewInit, Renderer, AfterContentInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -9,13 +9,13 @@ import { Subscription } from 'rxjs/Subscription';
   templateUrl: './app-alert.component.html',
   styleUrls: ['./app-alert.component.scss']
 })
-export class AppAlertComponent implements OnInit, OnDestroy {
-
+export class AppAlertComponent implements OnInit, OnDestroy, AfterContentInit {
+  @ViewChild('clr-alerts') clrAlerts: ElementRef;
   alerts: Alert[] = [];
   private alerts$: Observable<Alert> = this.alertService.alerts$;
   private alertSubscription: Subscription;
 
-  constructor(private alertService: AlertService) { }
+  constructor(private alertService: AlertService, private renderer: Renderer) { }
 
   ngOnInit() {
     this.alertSubscription = this.alerts$.subscribe((alert: AppAlert) => {
@@ -28,6 +28,10 @@ export class AppAlertComponent implements OnInit, OnDestroy {
     if (this.alertSubscription) {
       this.alertSubscription.unsubscribe();
     }
+  }
+
+  ngAfterContentInit() {
+    this.renderer.invokeElementMethod(this.clrAlerts.nativeElement, 'scrollIntoView');
   }
 
 }

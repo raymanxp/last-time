@@ -1,3 +1,4 @@
+import { AlertService } from './app-alert/alert.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ClarityModule } from '@clr/angular';
@@ -7,7 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { AppAlertComponent } from './app-alert/app-alert.component';
 import { AddEntryComponent } from './feature/add-entry/add-entry.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,9 +20,10 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     ClarityModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

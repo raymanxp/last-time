@@ -7,7 +7,7 @@
         <input id="action" formControlName="action" type="text" placeholder="changed">
         <span class="tooltip-content">
           This field cannot be empty!
-        </span> 
+        </span>
       </label>
     </div>
     <div class="app-form-group form-group">
@@ -30,12 +30,7 @@
     </div>
     <div class="app-form-group form-group">
       <label class="required" for="date">Date</label>
-      <label for="date" aria-haspopup="true" role="tooltip" [ngClass]="{'invalid': isInvalidControl('date')}" class="tooltip tooltip-validation tooltip-sm .tooltip-bottom-left">
-        <input id="date" formControlName="date" type="date">
-        <span class="tooltip-content">
-          This field cannot be empty!
-        </span>
-      </label>
+      <input id="date" formControlName="date" type="date" clrDate>
     </div>
   </section>
   <section class="form-block">

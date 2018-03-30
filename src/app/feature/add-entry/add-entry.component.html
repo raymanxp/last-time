@@ -3,7 +3,7 @@
   <section class="form-block">
     <div class="app-form-group form-group">
       <label class="required" for="action">Action</label>
-      <label for="action" aria-haspopup="true" role="tooltip" [ngClass]="{'invalid': isInvalidControl('action')}" class="tooltip tooltip-validation tooltip-sm .tooltip-bottom-left">
+      <label for="action" aria-haspopup="true" role="tooltip" [ngClass]="{'invalid': isInvalidControl('action')}" class="tooltip tooltip-top-left tooltip-validation tooltip-sm">
         <input id="action" formControlName="action" type="text" placeholder="changed">
         <span class="tooltip-content">
           This field cannot be empty!
@@ -12,7 +12,7 @@
     </div>
     <div class="app-form-group form-group">
       <label class="required" for="pronoun">Pronoun</label>
-      <label for="pronoun" aria-haspopup="true" role="tooltip" [ngClass]="{'invalid': isInvalidControl('pronoun')}" class="tooltip tooltip-validation tooltip-sm .tooltip-bottom-left">
+      <label for="pronoun" aria-haspopup="true" role="tooltip" [ngClass]="{'invalid': isInvalidControl('pronoun')}" class="tooltip tooltip-validation tooltip-sm tooltip-top-left">
         <input id="pronoun" formControlName="pronoun" type="text" placeholder="my">
         <span class="tooltip-content">
           This field cannot be empty!
@@ -21,7 +21,7 @@
     </div>
     <div class="app-form-group form-group">
       <label class="required" for="noun">Noun</label>
-      <label for="noun" aria-haspopup="true" role="tooltip" [ngClass]="{'invalid': isInvalidControl('noun')}" class="tooltip tooltip-validation tooltip-sm .tooltip-bottom-left">
+      <label for="noun" aria-haspopup="true" role="tooltip" [ngClass]="{'invalid': isInvalidControl('noun')}" class="tooltip tooltip-validation tooltip-sm tooltip-top-left">
         <input id="noun" formControlName="noun" type="text" placeholder="tires">
         <span class="tooltip-content">
           This field cannot be empty!

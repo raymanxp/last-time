@@ -1,0 +1,9 @@
+<ng-container *ngFor='let alert of alerts'>
+  <clr-alert [clrAlertType]="alert.type">
+    <div class="alert-item">
+      <span class="alert-text">
+        {{alert.message}}
+      </span>
+    </div>
+  </clr-alert>
+</ng-container>

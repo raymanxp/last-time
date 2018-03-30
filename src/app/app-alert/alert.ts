@@ -30,7 +30,9 @@ export class AppAlert implements Alert {
         this.sizeSmall = sizeSmall;
     }
 
-    startTimeout(): void {
-        setTimeout(() => this.closed = true, AppAlert.alertTimeOut);
+    startTimeout(timeout: number = AppAlert.alertTimeOut): void {
+        if ([AlertType.Info, AlertType.Success].filter((type) => this.type === type).length > 0) {
+            setTimeout(() => this.closed = true, timeout);
+        }
     }
 }

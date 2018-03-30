@@ -22,6 +22,10 @@ export class AppAlert implements Alert {
     readonly isAppLevel = true;
 
     constructor(closable = true, closed = false, message = '', type = AlertType.Info, sizeSmall = false) {
-
+        this.closable = closable;
+        this.closed = closed;
+        this.message = message;
+        this.type = type;
+        this.sizeSmall = sizeSmall;
     }
 }
